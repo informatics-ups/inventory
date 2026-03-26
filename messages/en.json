@@ -1,0 +1,47 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "LayoutRoot": {
+    "cc": "All Rights Reserved",
+    "pp": "Privacy Policy",
+    "tos": "Terms Of Service"
+  },
+  "LandingPage": {
+    "title": "Inventory",
+    "tagline": "Log It. Own It. Run the Lab.",
+    "badge": "Informatics",
+    "overview": {
+        "title": "Inventory Overview",
+        "description": "Real-time telemetry of laboratory assets and operational health.",
+        "card": {
+            "available": "Available",
+            "borrowed": "Borrowed",
+            "maintenance": "Maintenance",
+            "defective": "Defective",
+            "tracked": "Total Tracked Items",
+            "valuation": "Total Asset Valuation"
+        }
+    },
+    "borrow": {
+        "title": "Live Borrow Status",
+        "description": "Track the movement of assets in and out of the lab.",
+        "table": {
+            "header": {
+                "asset": "Asset",
+                "borrower": "Borrower",
+                "borrowedAt": "Borrowed At",
+                "dueDate": "Due Date",
+                "status": "Status"
+            },
+            "status": {
+                "on_track": "On Track",
+                "due_soon": "Due Soon",
+                "overdue": "Overdue"
+            },
+            "log": "View Full Access Log"
+        }
+    }
+    
+  }
+}
