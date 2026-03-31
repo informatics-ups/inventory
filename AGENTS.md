@@ -5,7 +5,6 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-
 <!-- BEGIN:skills-agent-rules -->
 # ALWAYS resolve skills before coding
 
@@ -31,3 +30,12 @@ Read the reference `/SKILL.md` before writing any code and the relevant Agent sk
 2. Semantic match — user's intent aligns with a skill `description`
 3. No match — proceed using only the rules in this file, do not load any skill body
 <!-- END:skills-agent-rules -->
+
+<!-- BEGIN:pnpm-agent-rules -->
+# ALWAYS use pnpm for all package and script commands
+
+This project uses pnpm exclusively. Before executing ANY install, run, build, or script command:
+- Load and follow the full instructions in `/.agent/skills/use-pnpm/SKILL.md`
+- Never use `npm`, `yarn`, or `bun` — substitute all such commands with their pnpm equivalent
+- This rule applies globally to ALL tasks, regardless of what other skills are active
+<!-- END:pnpm-agent-rules -->

@@ -13,6 +13,19 @@ description: Loads global rules from /AGENTS.md once per session, then lazily re
 
 ## Instructions
 
+### Phase 0 — Pre-Command Guard (Run Before ANY Command)
+
+Before executing any terminal command (install, run, build, test, deploy, script):
+
+1. Check if `use-pnpm` skill has been loaded this session
+2. If not — immediately lazy-load `/.agent/skills/use-pnpm/SKILL.md` in full
+3. Apply its rules to the current command before proceeding
+4. Mark `USE_PNPM_LOADED = true` — do not reload again this session
+
+> This phase runs **in addition to** Phase 2 skill matching, not instead of it.
+
+---
+
 ### Phase 1 — Session Init (Run Once Only)
 
 Run this phase **only if `/AGENTS.md` has not been read yet this session**:
@@ -28,12 +41,10 @@ Run this phase **only if `/AGENTS.md` has not been read yet this session**:
 
 ### Phase 2 — On-Demand Skill Resolution (Run Every Request)
 
-Run this phase on each user request:
-
 1. **Match intent** — Compare the user's request against the cached skill index (names + descriptions only)
 2. **Identify the best match** — Select at most 1–2 skills whose description is most relevant to the current request. If no skill is relevant, skip to step 4
 3. **Lazy-load the matched skill(s)** — Only now read the full `SKILL.md` body of the matched skill(s)
-4. **Execute** — Follow the loaded skill's instructions to handle the request, combined with global rules from `AGENTS.md`
+4. **Execute** — Follow the loaded skill's instructions combined with global rules from `AGENTS.md`
 5. **Discard after use** — Do not retain the full skill body in context after the task is done; only keep the shallow index
 
 ---
@@ -50,8 +61,6 @@ Only run when the user explicitly asks *"list all skills"*, *"what can you do?"*
 
 ## Skill Matching Logic
 
-When matching a user request to a skill, use this priority order:
-
 1. **Exact keyword match** — skill `name` appears in the user's message
 2. **Semantic match** — user's intent clearly aligns with a skill `description`
 3. **No match** — proceed without loading any skill body; apply only `AGENTS.md` rules
@@ -63,3 +72,4 @@ When matching a user request to a skill, use this priority order:
 - Root agent doc: `/AGENTS.md`
 - Skills directory: `/.agent/skills/`
 - Skill entry point: `/.agent/skills/<skill-name>/SKILL.md`
+- Pre-command guard: `/.agent/skills/use-pnpm/SKILL.md`
