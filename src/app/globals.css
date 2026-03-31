@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────
+   The Precision Archive — Design System Tokens
+   ────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Surface hierarchy (nocturnal foundation) ── */
+  --surface:                 #121416;
+  --surface-dim:             #121416;
+  --surface-bright:          #38393c;
+  --surface-container-lowest:#0c0e10;
+  --surface-container-low:   #1a1c1e;
+  --surface-container:       #1e2022;
+  --surface-container-high:  #282a2c;
+  --surface-container-highest:#333537;
+
+  /* ── Brand primaries ── */
+  --primary:            #7dd0ff;
+  --primary-container:  #369ac9;
+  --primary-fixed:      #c4e7ff;
+  --primary-fixed-dim:  #7dd0ff;
+  --on-primary:         #00344a;
+  --on-primary-container:#002d40;
+  --on-primary-fixed:   #001e2c;
+  --inverse-primary:    #00658b;
+
+  /* ── Secondary (Warm Amber‑Gold) ── */
+  --secondary:              #f3c72d;
+  --secondary-container:    #d5ac00;
+  --secondary-fixed:        #ffe086;
+  --secondary-fixed-dim:    #edc226;
+  --on-secondary:           #3c2f00;
+  --on-secondary-container: #534100;
+  --on-secondary-fixed:     #231b00;
+
+  /* ── Tertiary (Teal) ── */
+  --tertiary:               #89d3d5;
+  --tertiary-container:     #529c9e;
+  --tertiary-fixed:         #a5eff1;
+  --tertiary-fixed-dim:     #89d3d5;
+  --on-tertiary:            #003738;
+  --on-tertiary-container:  #002f31;
+
+  /* ── Neutral / on‑surface ── */
+  --on-surface:         #e2e2e5;
+  --on-surface-variant:  #bec8cf;
+  --on-background:       #e2e2e5;
+  --outline:             #899299;
+  --outline-variant:     #3f484e;
+  --surface-variant:     #333537;
+  --surface-tint:        #7dd0ff;
+  --inverse-surface:     #e2e2e5;
+  --inverse-on-surface:  #2f3133;
+  --background:          #121416;
+
+  /* ── Error / status ── */
+  --error:               #ffb4ab;
+  --error-container:     #93000a;
+  --on-error:            #690005;
+  --on-error-container:  #ffdad6;
+
+  /* ── Status beads ── */
+  --status-available: #34d399;
+  --status-borrowed:  #7dd0ff;
+  --status-warning:   #f3c72d;
+  --status-error:     #ffb4ab;
+
+  /* ── Shadcn semantic mapping ── */
+  --foreground: var(--on-surface);
+  --card: var(--surface-container-low);
+  --card-foreground: var(--on-surface);
+  --popover: var(--surface-container-high);
+  --popover-foreground: var(--on-surface);
+  --muted: var(--surface-container-high);
+  --muted-foreground: var(--on-surface-variant);
+  --accent: var(--surface-container-high);
+  --accent-foreground: var(--on-surface);
+  --destructive: var(--error);
+  --border: var(--outline-variant);
+  --input: var(--outline-variant);
+  --ring: var(--primary);
+  --primary-foreground: var(--on-primary);
+  --secondary-foreground: var(--on-secondary);
+
+  /* ── Radius ── */
+  --radius: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ── Extended palette for direct use ── */
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-primary: var(--on-primary);
+  --color-on-secondary: var(--on-secondary);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-error: var(--error);
+  --color-warning: var(--secondary);
+  --color-tertiary: var(--tertiary);
+
+  /* Status bead colors */
+  --color-status-available: var(--status-available);
+  --color-status-borrowed: var(--status-borrowed);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+
+  /* Fonts */
+  --font-headline: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
+
+  /* Radius */
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-sm: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Global resets ── */
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* ── Signature gradient ── */
+.signature-gradient {
+  background: linear-gradient(135deg, #7dd0ff 0%, #369ac9 100%);
+}
+
+/* ── Glassmorphism panel ── */
+.glass-panel {
+  background: rgba(26, 28, 30, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Status bead glow ── */
+.bead-available { box-shadow: 0 0 8px rgba(52, 211, 153, 0.6); }
+.bead-borrowed  { box-shadow: 0 0 8px rgba(125, 208, 255, 0.6); }
+.bead-warning   { box-shadow: 0 0 8px rgba(243, 199, 45, 0.6); }
+.bead-error     { box-shadow: 0 0 8px rgba(255, 180, 171, 0.6); }
+
+/* ── Ambient shadow for floating elements ── */
+.shadow-ambient {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Hero overlay gradient ── */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    var(--surface) 0%,
+    rgba(18, 20, 22, 0.92) 35%,
+    rgba(18, 20, 22, 0.6) 65%,
+    transparent 100%
+  );
+}
+
+/* ── Smooth scroll ── */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
