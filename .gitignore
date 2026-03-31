@@ -23,7 +23,14 @@
 # misc
 pnpm-lock.yaml
 .DS_Store
-*.pem
+# agent runtime directories and caches
+/.agents/          # Agent session state and caches
+/.claude/          # Claude-specific temporary files
+/.stitch/          # Code stitching intermediate files
+
+# Temporary files (replaces .delete*)
+.temp*
+*.tmp
 .temp*
 
 # debug
