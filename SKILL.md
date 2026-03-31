@@ -15,12 +15,11 @@ description: Loads global rules from /AGENTS.md once per session, then lazily re
 
 ### Phase 0 — Pre-Command Guard (Run Before ANY Command)
 
-Before executing any terminal command (install, run, build, test, deploy, script):
-
-1. Check if `use-pnpm` skill has been loaded this session
-2. If not — immediately lazy-load `/.agent/skills/use-pnpm/SKILL.md` in full
-3. Apply its rules to the current command before proceeding
-4. Mark `USE_PNPM_LOADED = true` — do not reload again this session
+Before executing any terminal command:
+1. Check if `use-pnpm` skill exists in skills-lock.json and is accessible
+2. If accessible and not loaded → lazy-load it, apply rules, mark loaded
+3. If inaccessible → log warning but proceed with command (don't block execution)
+4. If skill fails to load → fall back to default pnpm behavior with warning
 
 > This phase runs **in addition to** Phase 2 skill matching, not instead of it.
 
@@ -28,12 +27,12 @@ Before executing any terminal command (install, run, build, test, deploy, script
 
 ### Phase 1 — Session Init (Run Once Only)
 
-Run this phase **only if `/AGENTS.md` has not been read yet this session**:
+Run this phase only if global rules haven't been loaded THIS SESSION:
 
-1. Read `/AGENTS.md` from the project root
-2. Extract and store all global rules, conventions, and constraints internally
-3. Scan `/.agent/skills/` and build a **shallow index only** — read just the frontmatter (`name` + `description`) from each `SKILL.md`, do NOT read the full body yet
-4. Cache this index in memory for the rest of the session — do not re-scan on subsequent requests
+1. Read `/AGENTS.md`
+2. **Check skills-lock.json for authoritative skill list** (don't rely solely on filesystem)
+3. For each skill in lock file, read frontmatter from cached location or fallback to filesystem
+4. Cache index with TTL or version stamp for refresh capability
 
 > After Phase 1 completes, mark session as `AGENT_DOCS_LOADED = true`
 

@@ -23,12 +23,13 @@
 # misc
 pnpm-lock.yaml
 .DS_Store
-# agent runtime directories and caches
-/.agents/          # Agent session state and caches
-/.claude/          # Claude-specific temporary files
-/.stitch/          # Code stitching intermediate files
 
-# Temporary files (replaces .delete*)
+# agent runtime
+/.agents/
+/.claude/
+/.stitch/
+
+# Temporary files
 .temp*
 *.tmp
 .temp*
@@ -39,7 +40,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
 
 # vercel
@@ -48,8 +49,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# agent
-.agents
-.claude
-.stitch

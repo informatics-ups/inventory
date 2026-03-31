@@ -32,10 +32,10 @@ Read the reference `/SKILL.md` before writing any code and the relevant Agent sk
 <!-- END:skills-agent-rules -->
 
 <!-- BEGIN:pnpm-agent-rules -->
-# ALWAYS use pnpm for all package and script commands
+# PREFER pnpm for package and script commands
 
-This project uses pnpm exclusively. Before executing ANY install, run, build, or script command:
-- Load and follow the full instructions in `/.agent/skills/use-pnpm/SKILL.md`
-- Never use `npm`, `yarn`, or `bun` — substitute all such commands with their pnpm equivalent
-- This rule applies globally to ALL tasks, regardless of what other skills are active
+This project uses pnpm as the primary package manager. For package-related commands:
+1. First check if `use-pnpm` skill is available and applicable
+2. Use pnpm equivalents when possible
+3. Document exceptions when other package managers are necessary
 <!-- END:pnpm-agent-rules -->
