@@ -21,6 +21,7 @@
 /build
 
 # misc
+skills-lock.json
 pnpm-lock.yaml
 .DS_Store
 
