@@ -85,6 +85,9 @@
 
   /* ── Radius ── */
   --radius: 0.75rem;
+
+  /* -- Custom Colors by Author : DO NOT REMOVE -- */
+  --signature-gradient: 135deg, #7dd0ff 0%, #369ac9 100%;
 }
 
 @theme inline {

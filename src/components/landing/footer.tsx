@@ -31,7 +31,7 @@ export function Footer() {
             Terms of Service
           </Link>
           <Link
-            href="#"
+            href="/ex/code.html"
             className="text-outline/50 hover:text-on-surface-variant transition-colors"
           >
             Documentation

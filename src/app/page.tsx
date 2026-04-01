@@ -8,8 +8,7 @@ import { FloatingActionButton } from "@/components/landing/fab";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main className="pt-16 flex-1">
+      <main className="flex-1">
         <HeroSection />
         <InventoryOverview />
         <BorrowStatus />

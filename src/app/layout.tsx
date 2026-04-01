@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${manrope.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${manrope.variable} ${geistMono.variable} h-full antialiased dark scroll-smooth`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

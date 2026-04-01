@@ -10,6 +10,7 @@
   "LandingPage": {
     "title": "Inventory",
     "tagline": "Log It. Own It. Run the Lab.",
+    "subtitle": "When something goes wrong, operators get alerted instantly, so downtime is kept to a minimum and the lab keeps running without disruption.",
     "badge": "Informatics",
     "overview": {
         "title": "Inventory Overview",
