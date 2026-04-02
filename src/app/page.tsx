@@ -1,9 +1,9 @@
-import { Navbar } from "@/components/landing/navbar";
-import { HeroSection } from "@/components/landing/hero";
-import { InventoryOverview } from "@/components/landing/overview";
-import { BorrowStatus } from "@/components/landing/status";
-import { Footer } from "@/components/landing/footer";
-import { FloatingActionButton } from "@/components/landing/fab";
+import { Navbar } from "@/components/ux/home/navbar";
+import { HeroSection } from "@/components/ux/home/hero";
+import { InventoryOverview } from "@/components/ux/home/overview";
+import { BorrowStatus } from "@/components/ux/home/status";
+import { Footer } from "@/components/ux/home/footer";
+import { FloatingActionButton } from "@/components/ux/home/fab";
 
 export default function Home() {
   return (
