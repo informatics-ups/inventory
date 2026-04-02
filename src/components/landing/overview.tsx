@@ -3,18 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Package, Wallet, Download } from "lucide-react";
 
-function StatusBead({
-  color,
-  glow,
-}: {
-  color: string;
-  glow: string;
-}) {
-  return (
-    <div
-      className={`size-2 rounded-full ${color} ${glow}`}
-    />
-  );
+function StatusBead({ color, glow }: { color: string; glow: string }) {
+  return <div className={`size-2 rounded-full ${color} ${glow}`} />;
 }
 
 function StatCard({

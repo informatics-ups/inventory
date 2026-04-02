@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/landing/navbar";
-import { HeroSection } from "@/components/landing/hero-section";
-import { InventoryOverview } from "@/components/landing/inventory-overview";
-import { BorrowStatus } from "@/components/landing/borrow-status";
+import { HeroSection } from "@/components/landing/hero";
+import { InventoryOverview } from "@/components/landing/overview";
+import { BorrowStatus } from "@/components/landing/status";
 import { Footer } from "@/components/landing/footer";
 import { FloatingActionButton } from "@/components/landing/fab";
 

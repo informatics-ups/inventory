@@ -205,7 +205,7 @@ export function BorrowStatus() {
             className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all group"
           >
             {t("table.log")}
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.25" />
           </button>
         </div>
       </div>
